@@ -1,9 +1,12 @@
+package theatricalplays;
+
 import java.text.NumberFormat;
-import java.util.*;
+import java.util.Locale;
+import java.util.Map;
 
 public class StatementPrinter {
 
-  public String print(Invoice invoice, HashMap<String, Play> plays) {
+  public String print(Invoice invoice, Map<String, Play> plays) {
     int totalAmount = 0;
     int volumeCredits = 0;
     String result = String.format("Statement for %s\n", invoice.customer);
