@@ -1,72 +1,34 @@
 package theatricalplays;
-
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Map;
 
 public class StatementPrinter {
 
-  public String print(Invoice invoice, Map<String, Play> plays) 
+  public String print(Invoice invoice) 
   {
-    
-    int totalAmount         = 0;
-    int volumeCredits       = 0;
-    StringBuffer result     = new StringBuffer();
-    NumberFormat frmt       = NumberFormat.getCurrencyInstance(Locale.US);
 
-    result.append(String.format("Statement for %s\n", invoice.customer));
+    String name ;
+    float totPrice = 0 ;
+    int totCredit = 0 ;
+
+    StringBuffer result     = new StringBuffer("Statement for " + invoice.customer + "\n");
+    NumberFormat frmt       = NumberFormat.getCurrencyInstance(Locale.US);
+    
 
     for (Performance perf : invoice.performances) 
     
     {
-      
-      Play play = plays.get(perf.playID);
-      
-      int thisAmount = 0;
+      name = perf.play.name;
+      totPrice += perf.play.getPrice(perf.audience);
+      totCredit += perf.play.getCredits(perf.audience);
 
-      switch (play.type) 
-      
-      {
-        
-        case "tragedy":
-
-          thisAmount = 40000;
-          if (perf.audience > 30) 
-          {
-            thisAmount += 1000 * (perf.audience - 30);
-          }
-        
-        break;
-        
-        case "comedy":
-          
-          thisAmount = 30000;
-
-          if (perf.audience > 20) 
-          {
-            thisAmount += 10000 + 500 * (perf.audience - 20);
-          }
-
-          thisAmount += 300 * perf.audience;
-          
-        break;
-
-        default:
-
-          throw new Error("unknown type: " + play.type);
-
-      }
-
-      
-      volumeCredits += Math.max(perf.audience - 30, 0);
-      if ("comedy".equals(play.type)) volumeCredits += Math.floor(perf.audience / 5);
-
-      result.append(String.format("  %s: %s (%s seats)\n", play.name, frmt.format(thisAmount / 100), perf.audience));
-      totalAmount += thisAmount;
+      result.append(String.format("  %s: %s (%s seats)\n", name , frmt.format(perf.play.getPrice(perf.audience)), perf.audience));
     }
     
-    result.append(String.format("Amount owed is %s\n", frmt.format(totalAmount / 100)));
-    result.append(String.format("You earned %s credits\n", volumeCredits));
+    
+    result.append(String.format("Amount owed is %s\n", frmt.format(totPrice)));
+    result.append(String.format("You earned %s credits\n", totCredit));
     
     return result.toString();
   }
