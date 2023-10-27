@@ -51,8 +51,8 @@ public class Play {
       return credit ;
   }
 
-  public String GetName() { return name; }
+  public String getName() { return name; }
 
-  public TypePiece GetType() { return type; }
+  public TypePiece getType() { return type; }
 
 }

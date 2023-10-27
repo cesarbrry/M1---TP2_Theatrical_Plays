@@ -27,9 +27,7 @@ public class Invoice {
     return totCredit;
   }
 
-  public String getCustomer()
-  {
-    return customer;
-  }
+  public String getCustomer() {return customer;}
 
+  public List<Performance> getPerformances() {return performances;}
 }

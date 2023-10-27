@@ -9,4 +9,15 @@ public class Performance {
     this.play = play;
     this.audience = audience;
   }
+
+  public int getAudience()
+  {
+    return audience;
+  }
+
+  public Play getPlay()
+  {
+    return play ;
+  }
+
 }
