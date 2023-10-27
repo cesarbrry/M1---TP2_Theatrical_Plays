@@ -9,27 +9,18 @@ public class StatementPrinter {
   {
 
     String name ;
-    float totPrice = 0 ;
-    int totCredit = 0 ;
-
     StringBuffer result     = new StringBuffer("Statement for " + invoice.customer + "\n");
     NumberFormat frmt       = NumberFormat.getCurrencyInstance(Locale.US);
     
-
-    for (Performance perf : invoice.performances) 
-    
+    for (Performance perf : invoice.performances) // La boucle for nous permet de parcourir toutes les performance presentes dans notre liste
+                                                  // de performances dans notre classe invoice.
     {
-      name = perf.play.name;
-      totPrice += perf.play.getPrice(perf.audience);
-      totCredit += perf.play.getCredits(perf.audience);
-
+      name = perf.play.name;                      // Pour chaque performance, on va calculer le prix unitaire et l'afficher a coté du nom de la piece
       result.append(String.format("  %s: %s (%s seats)\n", name , frmt.format(perf.play.getPrice(perf.audience)), perf.audience));
     }
-    
-    
-    result.append(String.format("Amount owed is %s\n", frmt.format(totPrice)));
-    result.append(String.format("You earned %s credits\n", totCredit));
-    
+
+    result.append(String.format("Amount owed is %s\n", frmt.format(invoice.SommePrix())));  // On affiche ensuite le montant total de la facture
+    result.append(String.format("You earned %s credits\n", invoice.SommeCred()));           // Ainsi que le nombre de credits gagne par le client
     return result.toString();
   }
 }
