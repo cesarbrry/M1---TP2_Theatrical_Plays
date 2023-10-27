@@ -2,13 +2,16 @@ package theatricalplays;
 
 public class Play {
 
-  private static final String TRAGEDY = "tragedy";
-  private static final String COMEDY = "comedy";
+  public enum TypePiece
+  {
+    TRAGEDY,
+    COMEDY
+  }
 
   public String name;
-  public String type;
+  public TypePiece type;
 
-  public Play(String name, String type) {
+  public Play(String name, TypePiece type) {
     this.name = name;
     this.type = type;
   }
@@ -44,12 +47,12 @@ public class Play {
   {
       int credit = 0 ;
       credit += Math.max(audience - 30, 0);
-      if (this.type == COMEDY) { credit += Math.floor(audience / 5); }
+      if (this.type == TypePiece.COMEDY) { credit += Math.floor(audience / 5); }
       return credit ;
   }
 
   public String GetName() { return name; }
 
-  public String GetType() { return type; }
+  public TypePiece GetType() { return type; }
 
 }

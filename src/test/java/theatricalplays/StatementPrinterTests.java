@@ -1,6 +1,8 @@
 package theatricalplays;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import theatricalplays.Play.TypePiece;
+
 import java.util.List;
 
 
@@ -13,9 +15,9 @@ public class StatementPrinterTests {
     
 
         Invoice invoice = new Invoice("BigCo", List.of(
-                new Performance(new Play("Hamlet", "tragedy"), 55),
-                new Performance(new Play("As You Like It", "comedy"), 35),
-                new Performance(new Play("Othello", "tragedy"), 40)));
+                new Performance(new Play("Hamlet", TypePiece.TRAGEDY), 55),
+                new Performance(new Play("As You Like It", TypePiece.COMEDY), 35),
+                new Performance(new Play("Othello", TypePiece.TRAGEDY), 40)));
 
         StatementPrinter statementPrinter = new StatementPrinter();
         var result = statementPrinter.print(invoice);
@@ -23,16 +25,4 @@ public class StatementPrinterTests {
         verify(result);
     }
 
-    @Test
-    void statementWithNewPlayTypes() {
-
-        Invoice invoice = new Invoice("BigCo", List.of(
-                new Performance(new Play("Henry V", "history"), 53),
-                new Performance(new Play("As You Like It", "pastoral"), 55)));
-
-        StatementPrinter statementPrinter = new StatementPrinter();
-        Assertions.assertThrows(Error.class, () -> {
-            statementPrinter.print(invoice);
-        });
-    }
 }
