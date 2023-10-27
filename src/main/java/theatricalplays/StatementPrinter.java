@@ -1,6 +1,11 @@
 package theatricalplays;
+import freemarker.template.*;
+
+import java.io.StringWriter;
 import java.text.NumberFormat;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class StatementPrinter {
 
@@ -19,6 +24,31 @@ public class StatementPrinter {
     result.append(String.format("Amount owed is %s\n", frmt.format(invoice.SommePrix())));  // On affiche ensuite le montant total de la facture
     result.append(String.format("You earned %s credits\n", invoice.SommeCred()));           // Ainsi que le nombre de credits gagne par le client
     return result.toString();
+  }
+
+  
+  public String toHtml(Invoice invoice) {
+    try {
+      Configuration cfg = new Configuration(Configuration.VERSION_2_3_30);
+      cfg.setClassForTemplateLoading(StatementPrinter.class, "/");
+      cfg.setDefaultEncoding("UTF-8");
+      cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+      cfg.setLocale(Locale.FRANCE);
+
+      Template template = cfg.getTemplate("htmlTemplate.ftlh");
+
+      /* Create a data-model */
+      Map<String, Object> root = new HashMap<>();
+      root.put("invoice", invoice);
+
+      StringWriter writer = new StringWriter();
+      template.setOutputEncoding("UTF-8");
+      template.process(root, writer);
+      return writer.toString();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 }
 

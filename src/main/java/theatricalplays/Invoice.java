@@ -27,4 +27,9 @@ public class Invoice {
     return totCredit;
   }
 
+  public String getCustomer()
+  {
+    return customer;
+  }
+
 }

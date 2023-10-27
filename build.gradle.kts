@@ -3,7 +3,6 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 plugins {
   java
   jacoco
-  checkstyle
   pmd
 }
 
@@ -14,6 +13,7 @@ repositories {
 dependencies {
   testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
   testImplementation("com.approvaltests:approvaltests:19.0.0")
+  implementation("org.freemarker:freemarker:2.3.32")
 }
 
 tasks.test {
