@@ -42,7 +42,7 @@
 <body>
     <h1 style="text-align: center;">[ FINAL INVOICE ]</h1>
     <h2 style="text-align: center;">Customer : Bigco</h2>
-    <h2 style="text-align: center;">Base Fidelity Points : 165</h2>
+    <h2 style="text-align: center;">Base Fidelity Points : 145</h2>
     <table>
         <tr class="highcell">
             <th> PIECE </th>
@@ -72,12 +72,10 @@
         </tr>
         
 
-
         <tr class="lastcell">
-            <td colspan="2">Total owed (- $15 of fidelity points) : </td>
-            <td>$1 715</td>
+            <td colspan="2">Total owed : </td>
+            <td>$1 730</td>
         </tr>
-
 
         <tr class="lastcell">
             <td colspan="2">Fidelity points earned : </td>
@@ -86,7 +84,7 @@
 
         <tr class="lastcell">
             <td colspan="2">Fidelity points final credit : </td>
-            <td>62</td>
+            <td>192</td>
         </tr>
         
     </table>
