@@ -11,7 +11,7 @@ public class StatementPrinter {
 
   public String print(Invoice invoice) 
   {
-    StringBuffer result     = new StringBuffer("Statement for " + invoice.customer.getName + "\n");
+    StringBuffer result     = new StringBuffer("Statement for " + invoice.customer.getName() + "\n");
     NumberFormat frmt       = NumberFormat.getCurrencyInstance(Locale.US);
     
     for (Performance perf : invoice.performances) // La boucle for nous permet de parcourir toutes les performance presentes dans notre liste

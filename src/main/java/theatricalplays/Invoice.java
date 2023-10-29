@@ -27,7 +27,9 @@ public class Invoice {
     return totCredit;
   }
 
-  public String getCustomer() {return customer;}
+  public Customer getCustomer() {return customer;}
+
+  public String getCustomerName(){return customer.getName();}
 
   public List<Performance> getPerformances() {return performances;}
 }

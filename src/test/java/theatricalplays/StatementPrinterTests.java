@@ -14,7 +14,7 @@ public class StatementPrinterTests {
     void exampleStatement() {
     
 
-        Invoice invoice = new Invoice(new Customer(Bigco,1234,165), List.of(
+        Invoice invoice = new Invoice(new Customer("Bigco",1234,165), List.of(
                 new Performance(new Play("Hamlet", TypePiece.TRAGEDY), 55),
                 new Performance(new Play("As You Like It", TypePiece.COMEDY), 35),
                 new Performance(new Play("Othello", TypePiece.TRAGEDY), 40)));
@@ -29,7 +29,7 @@ public class StatementPrinterTests {
     void exampleStatementHtml() {
     
 
-        Invoice invoice = new Invoice(new Customer(Bigco,1234,165), List.of(
+        Invoice invoice = new Invoice(new Customer("Bigco",1234,165), List.of(
                 new Performance(new Play("Hamlet", TypePiece.TRAGEDY), 55),
                 new Performance(new Play("As You Like It", TypePiece.COMEDY), 35),
                 new Performance(new Play("Othello", TypePiece.TRAGEDY), 40)));

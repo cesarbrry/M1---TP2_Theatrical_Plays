@@ -41,6 +41,7 @@
 
 <body>
     <h1 style="text-align: center;"> FINAL INVOICE </h1>
+    <h2 style="text-align: center;">CUSTOMER : Bigco</h2>
     <table>
         <tr class="highcell">
             <th> PIECE </th>
@@ -48,7 +49,7 @@
             <th> PRICE </th>
         </tr>
         
-                
+        
         <tr class="middlecell">
             <td>Hamlet</td>
             <td>55</td>

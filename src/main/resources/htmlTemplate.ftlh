@@ -41,6 +41,7 @@
 
 <body>
     <h1 style="text-align: center;"> FINAL INVOICE </h1>
+    <h2 style="text-align: center;">CUSTOMER : ${invoice.getCustomerName()}</h2>
     <table>
         <tr class="highcell">
             <th> PIECE </th>
