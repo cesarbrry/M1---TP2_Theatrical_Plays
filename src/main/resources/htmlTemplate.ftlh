@@ -40,8 +40,9 @@
 </head>
 
 <body>
-    <h1 style="text-align: center;"> FINAL INVOICE </h1>
-    <h2 style="text-align: center;">CUSTOMER : ${invoice.getCustomerName()}</h2>
+    <h1 style="text-align: center;">[ FINAL INVOICE ]</h1>
+    <h2 style="text-align: center;">Customer : ${invoice.getCustomerName()}</h2>
+    <h2 style="text-align: center;">Base Fidelity Points : ${invoice.customer.getPointDeFidelite()}</h2>
     <table>
         <tr class="highcell">
             <th> PIECE </th>
@@ -67,6 +68,11 @@
         <tr class="lastcell">
             <td colspan="2">Fidelity points earned : </td>
             <td>${invoice.SommeCred()}</td>
+        </tr>
+
+        <tr class="lastcell">
+            <td colspan="2">Fidelity points final credit : </td>
+            <td>${invoice.CreditFinal()}</td>
         </tr>
         
     </table>

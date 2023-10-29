@@ -17,6 +17,11 @@ public class Invoice {
   {
     float totPrice = 0 ;
     for (Performance perf : performances) { totPrice += perf.play.getPrice(perf.audience); } // On utilise une boucle for pour calculer le prix de toute les performances
+    if (this.customer.PointDeFidelite >= 150)
+    {
+      totPrice -= 15;
+      this.customer.PointDeFidelite -= 150;
+    }
     return totPrice;
   }
 
@@ -25,6 +30,22 @@ public class Invoice {
     int totCredit = 0 ;
     for (Performance perf : performances) { totCredit += perf.play.getCredits(perf.audience); } // On utilise une boucle for pour calculer le credit de toute les performances
     return totCredit;
+  }
+
+  public int CreditFinal()
+  {
+    int finalCred ;
+    if( customer.getPointDeFidelite() >= 150)
+    {
+      finalCred = ((customer.getPointDeFidelite()) + SommeCred()) - 150 ;
+    }
+
+    else
+    {
+      finalCred = ((customer.getPointDeFidelite()) + SommeCred()) ;
+    }
+    
+    return finalCred;
   }
 
   public Customer getCustomer() {return customer;}
