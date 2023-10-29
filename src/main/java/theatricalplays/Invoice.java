@@ -34,18 +34,17 @@ public class Invoice {
 
   public int CreditFinal()
   {
-    int finalCred ;
     if( customer.getPointDeFidelite() >= 150)
     {
-      finalCred = ((customer.getPointDeFidelite()) + SommeCred()) - 150 ;
+      customer.PointDeFidelite = ((customer.getPointDeFidelite()) + SommeCred()) - 150 ;
     }
 
     else
     {
-      finalCred = ((customer.getPointDeFidelite()) + SommeCred()) ;
+      customer.PointDeFidelite = ((customer.getPointDeFidelite()) + SommeCred()) ;
     }
-    
-    return finalCred;
+
+    return customer.PointDeFidelite;
   }
 
   public Customer getCustomer() {return customer;}

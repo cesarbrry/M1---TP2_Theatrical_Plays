@@ -72,10 +72,12 @@
         </tr>
         
 
+
         <tr class="lastcell">
-            <td colspan="2">Total owed : </td>
+            <td colspan="2">Total owed (- $15 of fidelity points) : </td>
             <td>$1 715</td>
         </tr>
+
 
         <tr class="lastcell">
             <td colspan="2">Fidelity points earned : </td>

@@ -60,10 +60,19 @@
         
         </#list>
 
+        <#if invoice.customer.getPointDeFidelite() gte 150 >
+
+        <tr class="lastcell">
+            <td colspan="2">Total owed (- $15 of fidelity points) : </td>
+            <td>$${invoice.SommePrix()}</td>
+        </tr>
+
+        <#else>
         <tr class="lastcell">
             <td colspan="2">Total owed : </td>
             <td>$${invoice.SommePrix()}</td>
         </tr>
+        </#if>
 
         <tr class="lastcell">
             <td colspan="2">Fidelity points earned : </td>
