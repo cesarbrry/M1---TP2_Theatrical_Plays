@@ -1,8 +1,12 @@
-# M1---TP2_Theatrical_Plays
+# [ Theatrical Plays ]
+## EXPLICATION DU FONCTIONNEMENT DU CODE
+
 
 Ce code est un ensemble de classes java utilisées afin de générer une facture basée sur des
 performances théâtrales (ou des représentations) et des informations sur ces performances. Le code effectue le calcul du
-montant total de la facture et des crédits gagnés pour le client. Voici une explication détaillée de ce que fait le code :
+montant total de la facture et des crédits gagnés pour le client. Voici une explication détaillée de ce que fait le code 
+
+-----------------
 
 - Définition des types de pièces de théâtre : Deux constantes sont définies, "TRAGEDY" et "COMEDY", pour représenter
 les deux types de pièces de théâtre.
@@ -27,6 +31,9 @@ inf(nombre de personnes/5)
 - Ligne de facture : Une ligne de la facture est ajoutée à la variable `result`, indiquant le nom de la pièce de théâtre, le
 montant facturé et le nombre de spectateurs pour cette performance.
 - Mise à jour du montant total : Le montant facturé pour cette performance est ajouté au `totalAmount`.
+
+-----------------
+
 En résumé, ce code prend en entrée des informations sur des performances théâtrales, calcule le montant total de la facture
 en fonction du type de pièce et du nombre de spectateurs, attribue des crédits en fonction du nombre de spectateurs et du
 type de pièce, puis génère une facture sous forme de texte.
